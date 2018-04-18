@@ -1,0 +1,70 @@
+<!DOCETYPE html>
+
+<html>
+<title>my_converter</title>
+<center>
+<head><h1>Convert Decimal to Binary and Hexadecimal<br>And Binary to Decimal and Hexadecimal</h1></head>
+<body style="background-color:powderblue;">
+<br><br>
+<b>Insert Any Decimal Number: </b><input type = "text" name = "deci" id = "deci" size = "15" maxlength = "15" />
+<input type="button" value="Convert" onclick="dec2bin()" />
+<br><br>
+<div id = "result"></div>
+
+<script type = "text/javascript">
+
+function dec2bin() {
+var x = document.getElementById("deci").value;
+if ((/[^0-9]/g.test(x)) || x == "") {
+alert ("You must enter a decimal number!");
+document.getElementById("deci").value = "";
+document.getElementById("deci").focus();
+return true;
+}
+x = parseInt(x);
+var bin = x.toString(2);
+var hex = x.toString(16).toUpperCase();
+
+
+
+var figs = "The binary representation of " + x + " is " + bin + "<br>";
+figs = figs + "The hexadecimal representation of " + x + " is " + hex + "<br>";
+
+document.getElementById("result").innerHTML = figs;
+}
+</script>
+<br><br><br><br><br><br><br>
+
+
+<b>Insert Any Binary Number: </b><input type = "text" name = "bin" id = "bin" size = "15" maxlength = "16" />
+<input type="button" value="Convert" onclick="bin2deci()" />
+<div id = "result"></div>
+
+<p>
+	
+<script type = "text/javascript">
+
+function bin2deci(binaryvalue) {
+
+var x = document.getElementById("bin").value;
+if ((/[^0-1]/g.test(x)) || x == '') {
+alert ("You must inter a binary number!");
+document.getElementById("bin").value ='';
+document.getElementById("bin").focus();
+return true;
+}
+x = parseInt(x, 2);
+var deci = x.toString(10);
+var hex = x.toString(16).toUpperCase();
+"<br>"
+var fogs = "The decimal representation of " + x.toString(2) + " is " + deci + "<br>";
+fogs = fogs + "The hexadecimal representation of " + x.toString(2) + " is " + hex + "<br>";
+"<br>"
+document.getElementById("result").innerHTML = fogs;
+}
+</script>
+
+
+<center><h6>(Reload Page to reset all.)</h6></center>
+</body></center>
+</html>
